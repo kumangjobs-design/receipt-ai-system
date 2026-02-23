@@ -404,8 +404,7 @@ body {
 
 .phone-mockup {
   width: 100%;
-  max-width: 260px;
-}
+  }
 
 .phone-frame {
   background: #1a1a1a;
@@ -428,7 +427,7 @@ body {
 .phone-screen img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -755,6 +754,25 @@ body {
 
 .footer-text {
   margin: 0;
+}
+
+.footer-links {
+  margin: 0.75rem 0 0;
+}
+
+.footer-links a {
+  color: var(--ink-muted);
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  color: var(--ink);
+}
+
+.footer-sep {
+  margin: 0 0.5rem;
+  color: var(--ink-muted);
+  font-weight: 400;
 }
 
 /* ========== レスポンシブ ========== */
