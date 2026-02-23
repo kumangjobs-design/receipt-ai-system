@@ -1,0 +1,955 @@
+/* パシャ経費管理＆AI相談 ランディング */
+
+:root {
+  --paper: #faf8f5;
+  --paper-line: #e8e4dc;
+  --ink: #2c2a26;
+  --ink-muted: #5c5852;
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --success: #15803d;
+  --success-soft: #dcfce7;
+  --header-bg: #1e3a5f;
+  --header-text: #f0f4f8;
+  --featured-bg: #f0f9ff;
+  --featured-border: #0ea5e9;
+  --shadow: rgba(44, 42, 38, 0.06);
+  --font-sans: "Noto Sans JP", sans-serif;
+  --font-serif: "Noto Serif JP", serif;
+  --new-bg: #ef4444;
+  --new-text: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  background-image:
+    linear-gradient(to right, var(--paper-line) 1px, transparent 1px);
+  background-size: 24px 1px;
+  background-position: 12px 0;
+  background-color: var(--paper);
+}
+
+/* ========== ヘッダー（タイトルを大きく） ========== */
+.header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 2.5rem 1rem 3rem;
+  text-align: center;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.header-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.logo {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.tagline {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  opacity: 0.92;
+  font-weight: 400;
+}
+
+.header-login-btn {
+  display: inline-block;
+  background: #fff;
+  color: var(--header-bg);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.6rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.header-login-btn:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+/* ========== メインコンテナ ========== */
+.main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+/* ========== ヒーロー ========== */
+.hero {
+  margin-bottom: 2.5rem;
+}
+
+.hero-inner {
+  padding: 1.5rem 1.25rem;
+  background: linear-gradient(135deg, var(--accent-soft) 0%, #eff6ff 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+.hero-lead {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.hero-lead strong {
+  color: var(--header-bg);
+  font-weight: 700;
+}
+
+.hero-sub {
+  margin: 0.75rem 0 0;
+  font-size: 0.98rem;
+  color: var(--ink-muted);
+}
+
+.hero-sub strong {
+  color: var(--header-bg);
+  font-weight: 700;
+}
+
+/* ========== NEW バッジ ========== */
+.badge-new {
+  display: inline-block;
+  background: var(--new-bg);
+  color: var(--new-text);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+
+.badge-new-inline {
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  position: relative;
+  top: -2px;
+}
+
+/* ========== 4つの特長カード ========== */
+.section-features {
+  margin-bottom: 2.5rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.feature-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.feature-card-new {
+  border-color: var(--featured-border);
+  background: var(--featured-bg);
+}
+
+.feature-card .badge-new {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  box-shadow: 0 1px 4px rgba(239, 68, 68, 0.25);
+}
+
+.feature-icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.feature-card-title {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* ========== 共通セクション ========== */
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.section-title-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.section-note {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+/* ========== このツールでできること（操作の流れ＋画面） ========== */
+.section-do .flow-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-do .screen-showcase {
+  margin-top: 0.5rem;
+}
+
+.screen-caption-single {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  text-align: center;
+  max-width: 320px;
+}
+
+/* 使い方（3ステップ） */
+.howto-title {
+  margin: 1.75rem 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.howto-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem 0.5rem;
+}
+
+.howto-step {
+  flex: 1 1 140px;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.howto-step-num {
+  display: inline-block;
+  width: 1.75rem;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  text-align: center;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.howto-step-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.howto-step-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.howto-arrow {
+  flex: 0 0 auto;
+  align-self: center;
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 599px) {
+  .howto-steps {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .howto-step {
+    flex: none;
+  }
+}
+
+.flow-card {
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.flow-card-accent {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--accent-soft) 0%, #eff6ff 100%);
+}
+
+.flow-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.flow-card-accent .flow-label {
+  color: var(--header-bg);
+}
+
+.flow-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.flow-desc strong {
+  color: var(--header-bg);
+  font-weight: 700;
+}
+
+/* ========== 紹介セクション ========== */
+.section-intro .intro-lead {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+.section-intro .intro-sub {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+}
+
+/* ========== 画面イメージ ========== */
+.section-screens .section-note {
+  margin-bottom: 1.25rem;
+}
+
+.screen-showcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.phone-mockup {
+  width: 100%;
+  max-width: 260px;
+}
+
+.phone-frame {
+  background: #1a1a1a;
+  border-radius: 28px;
+  padding: 12px;
+  box-shadow: 0 8px 24px var(--shadow), 0 0 0 2px rgba(255,255,255,0.1);
+}
+
+.phone-screen {
+  background: var(--paper);
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.phone-placeholder {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.phone-placeholder-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.phone-footer-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 4px 6px;
+  background: var(--header-bg);
+  color: var(--header-text);
+  font-size: 10px;
+  line-height: 1.3;
+  border-radius: 0 0 14px 14px;
+  margin-top: 4px;
+}
+
+.footer-nav-item {
+  flex: 1;
+  text-align: center;
+}
+
+.screen-caption {
+  width: 100%;
+  max-width: 380px;
+}
+
+.screen-caption-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.screen-caption-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.screen-caption-list li {
+  padding: 0.3rem 0;
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+}
+
+.screen-caption-list li strong {
+  color: var(--ink);
+}
+
+/* ========== 安心のポイント（改ざん防止＋優良な電子帳簿） ========== */
+.section-trust {
+  margin-bottom: 2.5rem;
+}
+
+.trust-block {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.trust-block:last-child {
+  margin-bottom: 0;
+}
+
+.trust-block-featured {
+  background: var(--featured-bg);
+  border-color: var(--featured-border);
+  border-width: 2px;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.08);
+}
+
+.trust-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--header-bg);
+}
+
+.trust-note {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+/* ========== チェックリスト ========== */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist li {
+  padding: 0.4rem 0 0.4rem 1.75rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.checklist .check {
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.checklist-featured li {
+  padding: 0.5rem 0 0.5rem 1.75rem;
+  font-weight: 500;
+}
+
+/* ========== アピールセクション ========== */
+.section-appeal .appeal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.section-appeal .appeal-list li {
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.section-appeal .appeal-list li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.section-appeal .appeal-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+/* 料金プラン */
+.section-plans {
+  padding: 1.25rem 1rem;
+  background: linear-gradient(135deg, var(--success-soft) 0%, #f0fdf4 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(21, 128, 61, 0.2);
+}
+
+.section-plans .appeal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.section-plans .appeal-list li {
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.section-plans .appeal-list li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.section-plans .appeal-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+/* 無料プランでできること */
+.free-plan-box {
+  background: #fff;
+  border: 2px solid rgba(21, 128, 61, 0.35);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.free-plan-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.free-plan-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem;
+}
+
+.free-plan-list li {
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.free-plan-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+.free-plan-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.section-plans .plans-free-lead {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.section-plans .plans-free-lead strong {
+  color: var(--success);
+}
+
+.section-plans .plans-footnote {
+  margin: 1rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(21, 128, 61, 0.3);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.section-plans .plans-footnote small {
+  font-size: 0.8rem;
+}
+
+/* ========== 要件チェックリスト ========== */
+.requirement-block {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--paper-line);
+}
+
+.requirement-block:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.requirement-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+#requirements .section-title {
+  margin-bottom: 1.25rem;
+}
+
+/* ========== CTA ========== */
+.section-cta {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--paper-line);
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.cta-text {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cta-login-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.cta-login-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.cta-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+/* ========== フッター ========== */
+.footer {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--paper-line);
+}
+
+.footer-text {
+  margin: 0;
+}
+
+/* ========== レスポンシブ ========== */
+@media (min-width: 480px) {
+  .feature-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  .feature-card {
+    padding: 1rem 0.75rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .logo {
+    font-size: 2.6rem;
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+  }
+
+  .hero-inner {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .hero-lead {
+    font-size: 1.15rem;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+  }
+
+  .section-tamper {
+    padding: 2rem 1.5rem;
+  }
+
+  .screen-showcase {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .screen-caption {
+    max-width: 340px;
+    padding-top: 0.5rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .main {
+    max-width: 800px;
+  }
+}
+
+/* ========== PCモード：フォント全体的に大きく ========== */
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+
+  .logo {
+    font-size: 2.85rem;
+  }
+
+  .tagline {
+    font-size: 1.15rem;
+  }
+
+  .header-login-btn {
+    font-size: 1.05rem;
+    padding: 0.7rem 2.25rem;
+  }
+
+  .hero-lead {
+    font-size: 1.25rem;
+  }
+
+  .hero-sub {
+    font-size: 1.08rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .section-title-icon {
+    font-size: 1.45rem;
+  }
+
+  .section-note {
+    font-size: 1rem;
+  }
+
+  .flow-label {
+    font-size: 0.9rem;
+  }
+
+  .flow-desc {
+    font-size: 1.05rem;
+  }
+
+  .screen-caption-single {
+    font-size: 1.05rem;
+  }
+
+  .howto-title {
+    font-size: 1.25rem;
+  }
+
+  .howto-step-title {
+    font-size: 1.08rem;
+  }
+
+  .howto-step-desc {
+    font-size: 0.95rem;
+  }
+
+  .trust-title {
+    font-size: 1.15rem;
+  }
+
+  .trust-note {
+    font-size: 1rem;
+  }
+
+  .checklist li {
+    font-size: 1.05rem;
+  }
+
+  .checklist-featured li {
+    font-size: 1.05rem;
+  }
+
+  .section-appeal .appeal-list li {
+    font-size: 1.05rem;
+  }
+
+  .section-appeal .appeal-note {
+    font-size: 1rem;
+  }
+
+  .section-plans .plans-free-lead {
+    font-size: 1.1rem;
+  }
+
+  .section-plans .appeal-list li {
+    font-size: 1.05rem;
+  }
+
+  .section-plans .appeal-note {
+    font-size: 1rem;
+  }
+
+  .free-plan-title {
+    font-size: 1.15rem;
+  }
+
+  .free-plan-list li {
+    font-size: 1rem;
+  }
+
+  .free-plan-note {
+    font-size: 0.9rem;
+  }
+
+  .section-plans .plans-footnote {
+    font-size: 0.95rem;
+  }
+
+  .section-plans .plans-footnote small {
+    font-size: 0.9rem;
+  }
+
+  .requirement-title {
+    font-size: 1.15rem;
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+  }
+
+  .cta-login-btn {
+    font-size: 1.1rem;
+    padding: 0.85rem 2.75rem;
+  }
+
+  .cta-note {
+    font-size: 0.95rem;
+  }
+
+  .footer {
+    font-size: 0.95rem;
+  }
+}
