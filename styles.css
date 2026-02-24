@@ -138,6 +138,57 @@ body {
   font-weight: 700;
 }
 
+/* ========== 信頼の基盤 ========== */
+.section-trust-base {
+  margin-bottom: 2rem;
+}
+
+.trust-base-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.trust-base-card {
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trust-base-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.trust-base-icon {
+  font-size: 1.75rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.trust-base-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--header-bg);
+}
+
+.trust-base-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 599px) {
+  .trust-base-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ========== NEW バッジ ========== */
 .badge-new {
   display: inline-block;
@@ -402,6 +453,10 @@ body {
   gap: 1.5rem;
 }
 
+.screen-showcase .screenshot-grid {
+  min-width: 0;
+}
+
 .phone-mockup {
   width: 100%;
   }
@@ -457,6 +512,43 @@ body {
   margin-top: 4px;
 }
 
+/* ========== スクリーンショット（2列×2行、説明は下） ========== */
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.screenshot-grid-item {
+  min-width: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.screenshot-grid-item .phone-mockup,
+.screenshot-grid-item .phone-frame,
+.screenshot-grid-item .phone-screen {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.screenshot-grid .phone-mockup {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 縦幅を抑える：グリッド内のスマホ枠は min-height なし */
+.screenshot-grid .phone-screen {
+  min-height: 0;
+}
+
+.screen-showcase .screen-caption-single {
+  margin-top: 0.75rem;
+}
+
 .footer-nav-item {
   flex: 1;
   text-align: center;
@@ -488,6 +580,135 @@ body {
 
 .screen-caption-list li strong {
   color: var(--ink);
+}
+
+/* ========== OCR セクション ========== */
+.section-ocr {
+  background: linear-gradient(180deg, #fff 0%, var(--paper) 100%);
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--paper-line);
+}
+
+.ocr-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ocr-block {
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 4px var(--shadow);
+}
+
+.ocr-block-example {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, var(--accent-soft) 0%, #fff 100%);
+}
+
+.ocr-block-title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--header-bg);
+}
+
+.ocr-block-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+.ocr-example-box {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px dashed var(--accent);
+}
+
+.ocr-example-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.ocr-example-text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.ocr-receipt-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ocr-receipt-list li {
+  padding: 0.35rem 0 0.35rem 1.25rem;
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+.ocr-receipt-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* ========== AI相談セクション ========== */
+.section-ai {
+  margin-bottom: 2.5rem;
+}
+
+.ai-example-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.ai-example-card {
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 4px solid var(--accent);
+}
+
+.ai-example-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.ai-example-q {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.ai-example-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
 }
 
 /* ========== 安心のポイント（改ざん防止＋優良な電子帳簿） ========== */
@@ -817,6 +1038,12 @@ body {
     align-items: flex-start;
     justify-content: center;
     gap: 2.5rem;
+  }
+
+  /* スクリーンショット＋説明のブロックは常に縦並び（画像2×2、その下に説明） */
+  .screen-showcase:has(.screenshot-grid) {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .screen-caption {

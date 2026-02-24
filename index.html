@@ -29,6 +29,22 @@
         </div>
       </section>
 
+      <!-- 信頼の基盤（誰が・どの技術で） -->
+      <section class="section section-trust-base" aria-label="信頼の基盤">
+        <div class="trust-base-grid">
+          <div class="trust-base-card">
+            <span class="trust-base-icon" aria-hidden="true">☁️</span>
+            <h3 class="trust-base-title">データの保存</h3>
+            <p class="trust-base-desc">仕訳データ・領収書画像はクラウド上で安全に保存しています。必要な要件に配慮した設計で、いつでも検索・エクスポートが可能です。</p>
+          </div>
+          <div class="trust-base-card">
+            <span class="trust-base-icon" aria-hidden="true">🛡️</span>
+            <h3 class="trust-base-title">技術とセキュリティ</h3>
+            <p class="trust-base-desc">実務と法対応を意識して開発しています。改ざん防止のための履歴管理や、電子帳簿保存法の要件を満たす運用をサポートします。</p>
+          </div>
+        </div>
+      </section>
+
       <!-- 2. このツールでできること（操作・画面を1か所に集約） -->
       <section class="section section-do" id="do">
         <h2 class="section-title">
@@ -49,10 +65,41 @@
         </div>
 
         <div class="screen-showcase">
-          <div class="phone-mockup" aria-hidden="true">
-            <div class="phone-frame">
-              <div class="phone-screen">
-                <img src="images/app-screenshot.png" alt="アプリ画面のスクリーンショット" />
+          <div class="screenshot-grid" aria-label="アプリ画面">
+            <div class="screenshot-grid-item">
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-screen">
+                    <img src="images/app-screenshot.png" alt="アプリ画面：メイン操作" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="screenshot-grid-item">
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-screen">
+                    <img src="images/app-screenshot-2.png" alt="アプリ画面：領収書登録" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="screenshot-grid-item">
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-screen">
+                    <img src="images/app-screenshot-3.png" alt="アプリ画面：交通費・売上" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="screenshot-grid-item">
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-screen">
+                    <img src="images/app-screenshot-4.png" alt="アプリ画面：集計" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -80,6 +127,62 @@
             <p class="howto-step-desc">集計されたデータを確定申告書（紙またはe-Tax）に転記するだけ。申告手続きは各自で行ってください。</p>
           </div>
         </div>
+      </section>
+
+      <!-- レシート読み取り（OCR） -->
+      <section class="section section-ocr" id="ocr">
+        <h2 class="section-title">
+          <span class="section-title-icon">📷</span>
+          レシート読み取り（OCR）
+        </h2>
+        <p class="section-note">領収書を撮影するだけで、日付・金額・店名などを自動抽出。仕訳の入力がぐっと楽になります。</p>
+
+        <div class="ocr-blocks">
+          <div class="ocr-block ocr-block-example">
+            <h3 class="ocr-block-title">読み取りのイメージ</h3>
+            <p class="ocr-block-desc">レシート写真から<strong>日付・金額・取引先</strong>などを認識し、勘定科目の候補とあわせて仕訳案を表示。そのまま登録も、編集してから登録もできます。</p>
+            <div class="ocr-example-box" aria-hidden="true">
+              <span class="ocr-example-label">例</span>
+              <p class="ocr-example-text">日付: 2024/03/15　金額: 1,280円　取引先: ○○コンビニ → 経費（消耗品費など）</p>
+            </div>
+          </div>
+          <div class="ocr-block">
+            <h3 class="ocr-block-title">誤認識したときは</h3>
+            <p class="ocr-block-desc">画面から<strong>すぐに修正</strong>できます。日付・金額・勘定科目・取引先はいつでも編集可能。訂正履歴も残るので、優良な電子帳簿の要件を満たしたまま運用できます。</p>
+          </div>
+          <div class="ocr-block">
+            <h3 class="ocr-block-title">対応しているレシート</h3>
+            <ul class="ocr-receipt-list">
+              <li>コンビニ・スーパー・ドラッグストア</li>
+              <li>飲食店・カフェ</li>
+              <li>交通費（電車・バス・タクシー等の領収書）</li>
+              <li>その他、日付・金額が記載された一般的な領収書</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- AIに相談できること -->
+      <section class="section section-ai" id="ai">
+        <h2 class="section-title">
+          <span class="section-title-icon">💬</span>
+          AIに相談できること
+        </h2>
+        <p class="section-note">経理や確定申告で迷ったとき、アプリ内のAIにその場で質問できます。こんな相談が可能です。</p>
+        <ul class="ai-example-list">
+          <li class="ai-example-card">
+            <span class="ai-example-q">「この支出は経費になりますか？」</span>
+            <p class="ai-example-desc">経費計上の可否を、状況に合わせて相談できます。</p>
+          </li>
+          <li class="ai-example-card">
+            <span class="ai-example-q">「このレシートの勘定科目は何がよい？」</span>
+            <p class="ai-example-desc">領収書の内容に合った勘定科目の候補を提案します。</p>
+          </li>
+          <li class="ai-example-card">
+            <span class="ai-example-q">「確定申告の準備で何をすればいい？」</span>
+            <p class="ai-example-desc">申告までの流れや、このツールでできることを案内します。</p>
+          </li>
+        </ul>
       </section>
 
       <!-- 3. 安心のポイント（改ざん防止＋優良な電子帳簿を1ブロックに） -->
